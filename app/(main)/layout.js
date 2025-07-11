@@ -7,7 +7,6 @@ function Dashboardlayout({children}) {
       <Dashboardprovider>
         {children}
       </Dashboardprovider>
-      
     </div>
   )
 }

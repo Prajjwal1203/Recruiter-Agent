@@ -1,12 +1,17 @@
-import React from 'react'
+import React from "react";
+import {AppSidebar} from "./_components/AppSidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
-function Dashboardprovider({children}) {
+function Dashboardprovider({ children }) {
   return (
-    <div>
-      
-      {children}
-    </div>
-  )
+    <SidebarProvider>
+      <AppSidebar /> 
+      <div>
+        <SidebarTrigger />
+        {children}
+      </div>
+    </SidebarProvider>
+  );
 }
 
-export default Dashboardprovider
+export default Dashboardprovider;
