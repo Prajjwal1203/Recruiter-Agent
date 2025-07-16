@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { Progress } from "@/components/ui/progress"
 import React, { useState } from "react";
+import Formcontainer from "./_components/Formcontainer";
 
 function CreateInterview() {
 
@@ -18,6 +19,7 @@ function CreateInterview() {
      
       </div>
         <Progress value={step*33.33} className='my-5'></Progress>
+        <Formcontainer></Formcontainer>
     </div>
   );
 }
