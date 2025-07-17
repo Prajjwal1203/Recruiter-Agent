@@ -4,11 +4,21 @@ import { useRouter } from "next/navigation";
 import { Progress } from "@/components/ui/progress"
 import React, { useState } from "react";
 import Formcontainer from "./_components/Formcontainer";
+import QuestionsList from "./_components/QuestionsList";
 
 function CreateInterview() {
 
   const router  = useRouter();
-  const [step,setStep] = useState(1)
+  const [formData, setFormData] = useState();
+  const [step,setStep] = useState(1);
+  const onHandleInputChange=(field,value)=>{
+    setFormData(prev=>({
+      ...prev,
+      [field]: value
+    }))
+
+    console.log("Form Data",formData);
+  }
   return (
     <div className="mt-10 px-10 md:px-24 lg:px-44 xl:px-56
     ">
@@ -19,7 +29,9 @@ function CreateInterview() {
      
       </div>
         <Progress value={step*33.33} className='my-5'></Progress>
-        <Formcontainer></Formcontainer>
+       {step == 1?<Formcontainer onHandleInputChange={onHandleInputChange} ></Formcontainer>: step == 2?<QuestionsList/>:null}
+
+        
     </div>
   );
 }

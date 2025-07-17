@@ -39,11 +39,7 @@ export const InterviewType= [
     icon : User2Icon
   },
   {
-    title: "Technical",
-    icon : Code2Icon
-  },
-  {
-    title: "Technical",
+    title: "Experience",
     icon : BriefcaseBusinessIcon
   },
   {
