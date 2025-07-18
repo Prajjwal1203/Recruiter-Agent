@@ -13,7 +13,7 @@ import { InterviewType } from "@/services/Constants";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-function Formcontainer({ onHandleInputChange }) {
+function Formcontainer({ onHandleInputChange,GoToNext }) {
 
   const[interviewType,setInterviewType] = useState([]);
   useEffect(()=>{
@@ -84,7 +84,7 @@ function Formcontainer({ onHandleInputChange }) {
         </div>
       </div>
 
-      <div className="mt-7 flex justify-end">
+      <div className="mt-7 flex justify-end" onClick={()=>GoToNext()}>
         <Button>
           Generate Questions <ArrowRight></ArrowRight>
         </Button>

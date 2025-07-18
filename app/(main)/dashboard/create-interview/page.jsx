@@ -5,6 +5,7 @@ import { Progress } from "@/components/ui/progress"
 import React, { useState } from "react";
 import Formcontainer from "./_components/Formcontainer";
 import QuestionsList from "./_components/QuestionsList";
+import { toast } from "sonner";
 
 function CreateInterview() {
 
@@ -19,6 +20,15 @@ function CreateInterview() {
 
     console.log("Form Data",formData);
   }
+
+  const onGoToNext = () =>{
+    if(!formData?.jobPosition || !formData?.jobDescription || !formData?.interviewDuration || !formData?.type.length > 0)
+    {
+      toast('Please fill all the fields')
+      return;
+    }
+    setStep(step+1);
+  }
   return (
     <div className="mt-10 px-10 md:px-24 lg:px-44 xl:px-56
     ">
@@ -29,7 +39,7 @@ function CreateInterview() {
      
       </div>
         <Progress value={step*33.33} className='my-5'></Progress>
-       {step == 1?<Formcontainer onHandleInputChange={onHandleInputChange} ></Formcontainer>: step == 2?<QuestionsList/>:null}
+       {step == 1?<Formcontainer onHandleInputChange={onHandleInputChange} GoToNext={()=>onGoToNext()} ></Formcontainer>: step == 2?<QuestionsList formData={formData}/>:null}
 
         
     </div>
